@@ -33,6 +33,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 </div>
 
                 <div className="max-w-7xl mx-auto p-6 lg:p-8">
+                    <h1 className="text-center pb-3">Website - Tiagocode v0.0.1<br/></h1>
+
                     <div className="flex justify-center">
                         <svg
                             viewBox="0 0 62 65"
