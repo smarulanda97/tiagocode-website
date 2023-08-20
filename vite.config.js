@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
     server: {
         https: {
-            cert: './.certs/tiagocode.test.crt',
+            cert: './.certs/tiagocode.test.pem',
             key: './.certs/tiagocode.test.key',
         },
         host: 'website.tiagocode.test',
