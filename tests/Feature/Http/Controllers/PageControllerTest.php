@@ -19,7 +19,7 @@ class PageControllerTest extends TestCase
     }
 
     /**
-     * @test
+     * @tests
      */
     public function it_should_redirect_from_home_to_portfolio_page(): void {
         $this->get("/")
@@ -29,7 +29,7 @@ class PageControllerTest extends TestCase
 
     /**
      * @dataProvider provide_page_slugs
-     * @test
+     * @tests
      */
     public function it_should_render_a_page_by_given_slug($slug): void
     {
