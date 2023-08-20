@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import react from '@vitejs/plugin-react';
@@ -5,12 +6,12 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
     server: {
         https: {
-            cert: './.certs/tiagocode.test.pem',
-            key: './.certs/tiagocode.test.key',
+            cert: './.certs/tiagocode.tests.pem',
+            key: './.certs/tiagocode.tests.key',
         },
-        host: 'website.tiagocode.test',
+        host: 'website.tiagocode.tests',
         hmr: {
-            host: 'website.tiagocode.test',
+            host: 'website.tiagocode.tests',
         },
         cors: {
             origin: '*'
@@ -24,4 +25,13 @@ export default defineConfig({
         }),
         react(),
     ],
+    test: {
+        globals: true,
+        environment: 'jsdom',
+        coverage: {
+            reporter: ['html'],
+            reportsDirectory: './resources/js/tests/coverage'
+        },
+        setupFiles: ['resources/js/setup.js']
+    }
 });
