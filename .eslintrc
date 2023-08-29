@@ -1,18 +1,42 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:import/recommended",
-    "plugin:jsx-a11/recommended",
-    "eslint-config-prettier"
-  ],
-  "settings": {
-    "react": {
-      "version": "detect"
+    "parserOptions": {
+        "ecmaVersion": 2021,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "amd": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended",
+        "plugin:react/jsx-runtime"
+    ],
+    "plugins": [
+        "react", "prettier"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "no-undef": "off",
+        "react/prop-types": "off",
+        "react/jsx-indent" : ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "prettier/prettier": [
+            "error",
+            {},
+            {
+                "usePrettierrc": true
+            }
+        ]
     }
-  },
-  "rules": {
-  },
-  "react/react-in-jsx-scope": "off"
 }
