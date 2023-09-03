@@ -1,5 +1,6 @@
-import ApplicationLogo from '@/Components/ApplicationLogo';
 import { Link } from '@inertiajs/react';
+
+import ApplicationLogo from '@/Components/ApplicationLogo/ApplicationLogo';
 
 export default function Guest({ children }) {
     return (
@@ -9,14 +10,9 @@ export default function Guest({ children }) {
                     <Link href="">
                         <ApplicationLogo className="w-20 h-20 fill-current text-gray-nurse" />
                     </Link>
-
                 </nav>
             </header>
-
-            <main className="container max-w-7xl mx-auto flex justify-between">
-                {children}
-            </main>
+            <main className="container max-w-7xl mx-auto flex justify-between">{children}</main>
         </div>
     );
-
 }

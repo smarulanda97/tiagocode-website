@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { render } from '@/Utils/tests.utils.js';
-import ApplicationLogo from '@/Components/ApplicationLogo.jsx';
+import { render } from '@/Utils/testing';
+import ApplicationLogo from '@/Components/ApplicationLogo/ApplicationLogo';
 
 describe('Component::ApplicationLogo', () => {
-    it('It renders correctly', () => {
-        const { getByRole } = render(<ApplicationLogo />);
-        expect(getByRole('graphics-document')).toBeInTheDocument();
+    it('It renders an svg image', () => {
+        const { container } = render(<ApplicationLogo />);
+        expect(container.querySelector('svg')).toBeInTheDocument();
     });
 });
