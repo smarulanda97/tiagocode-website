@@ -9,6 +9,6 @@
  * @param url
  * @returns {boolean}
  */
-export function isAbsoluteUrl(url) {
+export function isAbsoluteUrl(url: string): boolean {
     return /^[a-z][a-z0-9+.-]*:/.test(url);
 }
