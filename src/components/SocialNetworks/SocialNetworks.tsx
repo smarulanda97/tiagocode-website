@@ -10,9 +10,8 @@ const SocialNetworks: React.FC<Props> = (props) => {
 
     return (
         <div {...forwardedProps}>
-            {elements.map((icon) => {
+            {elements.map((icon: IconType) => {
                 const { id, color } = icon;
-
                 return (
                     <Icon
                         key={id}

@@ -4,6 +4,7 @@ import { faker } from '@faker-js/faker';
 import { testingIcon } from '@/helpers/testing';
 import { Icon, IconsConfig, SvgSource } from '@/types';
 import { getIcon, getIconLink } from '@/helpers/icons';
+import { facebook as facebookIcon } from '@/assets/icons';
 const actualImplementation = jest.requireActual('@/helpers/icons');
 
 getIcon.mockImplementation((name: string, config: IconsConfig<SvgSource>) =>
@@ -65,6 +66,10 @@ describe('helpers::icons', () => {
                 link: {},
             };
             expect(getIcon(icon, { source })).toContain(testingIcon);
+        });
+
+        it('should use the default svg icons source from @/assets/icons/index.ts', () => {
+            expect(getIcon('facebook', {})).toContain(facebookIcon);
         });
     });
 });

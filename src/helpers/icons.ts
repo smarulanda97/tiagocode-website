@@ -1,12 +1,9 @@
-import { Icon, IconsConfig, SvgSource } from '@/types';
-import { Link } from '@/types/general';
-import { IconLink } from '@/types/icons';
+import * as icons from '@/assets/icons';
+import { Icon, IconsConfig, SvgSource, Link } from '@/types';
 
 const baseConfig: IconsConfig = {
     source: {
-        icons: {
-            ...import('@/assets/icons'),
-        },
+        icons,
     },
 };
 
@@ -15,8 +12,8 @@ const baseConfig: IconsConfig = {
  * @param icon
  * @param config
  */
-function getIcon(icon: string | Icon, config: IconsConfig = {}) {
-    if (!config) {
+function getIcon(icon: string | Icon, config?: IconsConfig) {
+    if (!config || !Object.keys(config).length) {
         config = baseConfig;
     }
 
