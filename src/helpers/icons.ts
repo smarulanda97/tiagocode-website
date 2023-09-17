@@ -1,75 +1,31 @@
-import * as icons from '@/assets/icons';
-import { Icon, IconsConfig, SvgSource, Link } from '@/types';
+import { IconsConfig } from '@/types';
+import * as iconsList from '@/assets/icons';
 
-const baseConfig: IconsConfig = {
+/*
+|--------------------------------------------------------------------------
+| Helper -> icons
+|--------------------------------------------------------------------------
+|
+| Helpers functions related to the icons functionality:
+|
+| function getIcon() ->
+|   Gets an svg icon from the source (by the given name).
+|   The default source is a ts file that contains all the icons.
+|
+*/
+
+const defaultConfig: IconsConfig = {
     source: {
-        icons,
+        icons: iconsList,
     },
 };
 
-/**
- *
- * @param icon
- * @param config
- */
-function getIcon(icon: string | Icon, config?: IconsConfig) {
-    if (!config || !Object.keys(config).length) {
-        config = baseConfig;
-    }
-
-    if (typeof icon !== 'string') {
-        icon = (icon as Icon).name;
-    }
-
-    return resolveSvgIcon(icon, config.source);
-}
-
-/**
- * Get an inline svg icon (presented as string) from the given source
- * of icons.
- *
- * @param name
- * @param source
- */
-function resolveSvgIcon(name: string, source: SvgSource) {
-    if (!Object.prototype.hasOwnProperty.call(source.icons, name)) {
+export function getIcon(name: string, config?: IconsConfig) {
+    if (!config) {
+        config = defaultConfig;
+    } else if (!Object.prototype.hasOwnProperty.call(config.source.icons, name)) {
         return null;
     }
 
-    return source.icons[name];
+    return config.source.icons[name];
 }
-
-/**
- * Return an object with the link attributes for the given icon.
- *
- * @param icon
- */
-function getIconLink(icon: Icon): Link {
-    if (!icon?.link) {
-        return {};
-    } else if (typeof icon.link === 'string') {
-        return resolveLinkAttrs(icon.link);
-    } else if (typeof icon.link !== 'object') {
-        return {};
-    }
-
-    return resolveLinkAttrs(icon.link.url, icon.link?.title);
-}
-
-/**
- * Return the attributes of the icon link.
- *
- * @param url
- * @param title
- */
-function resolveLinkAttrs(url: string, title?: string): Link {
-    return {
-        url: url,
-        title: title || '',
-    };
-}
-
-module.exports = {
-    getIcon,
-    getIconLink,
-};

@@ -1,33 +1,16 @@
-import Link from 'next/link';
+import { Icon } from '@/types';
+import { getIcon } from '@/helpers';
 
-import { Icon as IconType } from '@/types';
-import { getIcon, getIconLink } from '@/helpers/icons';
+function IconComponent(props: Icon) {
+    const { name, color = '#000', ...otherProps } = props;
 
-type Props = {
-    icon: IconType;
-};
-
-const Icon: React.FC<Props> = (props) => {
-    const { icon, ...otherProps } = props;
-    const { url } = getIconLink(icon);
-
-    return url ? (
-        <Link href={url}>
-            <IconSvg icon={icon} {...otherProps} />
-        </Link>
-    ) : (
-        <IconSvg icon={icon} {...otherProps} />
-    );
-};
-
-const IconSvg: React.FC = (props) => {
-    const { icon, ...otherProps } = props;
     return (
         <span
             {...otherProps}
-            dangerouslySetInnerHTML={{ __html: getIcon(icon) }}
+            data-testid={'icon'}
+            dangerouslySetInnerHTML={{ __html: getIcon(name) ?? '' }}
         />
     );
-};
+}
 
-export default Icon;
+export default IconComponent;

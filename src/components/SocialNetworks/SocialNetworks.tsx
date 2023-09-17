@@ -1,27 +1,23 @@
-import { IconType } from '@/types';
-import Icon from '@/components/Icon/Icon';
+import Link from 'next/link';
 
-interface Props {
-    elements: IconType[];
-}
+import { Icon } from '@/components';
+import { SocialNetworks } from '@/types';
 
-const SocialNetworks: React.FC<Props> = (props) => {
-    const { elements = [], ...forwardedProps } = props;
+function SocialNetworksComponent(props: SocialNetworks) {
+    const { items = [], ...otherProps } = props;
 
     return (
-        <div {...forwardedProps}>
-            {elements.map((icon: IconType) => {
-                const { id, color } = icon;
-                return (
+        <div {...otherProps}>
+            {items.map(({ id, link, icon }) => (
+                <Link key={id} href={link}>
                     <Icon
-                        key={id}
-                        icon={icon}
-                        className={`bg-gray-nurse-200 flex h-10 w-10 items-center justify-center rounded-lg shadow-md text-[${color}]`}
+                        {...icon}
+                        className={`bg-gray-nurse-200 flex h-10 w-10 items-center justify-center rounded-lg shadow-md`}
                     />
-                );
-            })}
+                </Link>
+            ))}
         </div>
     );
-};
+}
 
-export default SocialNetworks;
+export default SocialNetworksComponent;

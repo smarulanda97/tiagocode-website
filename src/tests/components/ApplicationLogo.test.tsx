@@ -1,5 +1,5 @@
-import { renderer } from '@/helpers/testing';
-import Logo from '@/components/Logo/Logo';
+import { Logo } from '@/components';
+import { renderer } from '@/tests/utils';
 
 describe('component::Logo', () => {
     it('should render the component correctly', () => {

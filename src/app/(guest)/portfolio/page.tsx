@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import Icon from '@/components/Icon/Icon';
-import SocialNetworks from '@/components/SocialNetworks/SocialNetworks';
+import { Icon, SocialNetworks, ContactDetails } from '@/components';
 
 export default function Home() {
     return (
@@ -31,106 +30,77 @@ export default function Home() {
                         </p>
                         <SocialNetworks
                             className='flex justify-center space-x-3'
-                            elements={[
+                            items={[
                                 {
                                     id: '1',
-                                    name: 'linkedin',
+                                    title: 'Linkedin',
                                     link: 'https://google.com',
-                                    color: '#0072b1',
+                                    icon: {
+                                        name: 'linkedin',
+                                        color: '#0072b1',
+                                    },
                                 },
                                 {
                                     id: '2',
-                                    name: 'facebook',
+                                    title: 'Facebook',
                                     link: 'https://google.com',
-                                    color: '#1773EA',
+                                    icon: {
+                                        name: 'facebook',
+                                        color: '#1773EA',
+                                    },
                                 },
                                 {
                                     id: '3',
-                                    name: 'website',
+                                    title: 'Google',
                                     link: 'https://google.com',
-                                    color: '#e14a84',
+                                    icon: {
+                                        name: 'website',
+                                        color: '#e14a84',
+                                    },
                                 },
                             ]}
                         />
-                        <ul className='bg-gray-nurse-200 mt-7 rounded-2xl p-7 dark:bg-[#1D1D1D]'>
-                            <li className='flex border-b border-[#E3E3E3] py-2.5'>
-                                <Icon
-                                    icon={'phone'}
-                                    className='bg-gray-nurse flex h-10 w-10 items-center justify-center rounded-lg text-[#E93B81] shadow-md'
-                                />
-                                <div className='5 ml-2 text-left'>
-                                    <p className='text-xs text-[#44566C] dark:text-[#A6A6A6]'>
-                                        Phone
-                                    </p>
-                                    <p className='break-all'>
-                                        <a
-                                            className='transition duration-300 hover:text-[#FA5252]'
-                                            href='tel:+1234567890'
-                                        >
-                                            +356 990 43478
-                                        </a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li className='flex border-b border-[#E3E3E3] py-2.5'>
-                                <Icon
-                                    icon={'email'}
-                                    className='bg-gray-nurse flex h-10 w-10 items-center justify-center rounded-lg text-[#FD7590] shadow-md'
-                                />
-                                <div className='5 ml-2 text-left'>
-                                    <p className='text-xs text-[#44566C] dark:text-[#A6A6A6]'>
-                                        Email
-                                    </p>
-                                    <p className='break-all'>
-                                        <a
-                                            className='transition duration-300 hover:text-[#FA5252]'
-                                            href='tel:+1234567890'
-                                        >
-                                            santiagomm1997@gmail.com
-                                        </a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li className='flex border-b border-[#E3E3E3] py-2.5'>
-                                <Icon
-                                    icon={'location'}
-                                    className='bg-gray-nurse flex h-10 w-10 items-center justify-center rounded-lg text-[#6AB5B9] shadow-md'
-                                />
-                                <div className='5 ml-2 text-left'>
-                                    <p className='text-xs text-[#44566C] dark:text-[#A6A6A6]'>
-                                        Location
-                                    </p>
-                                    <p className='break-all'>
-                                        <a
-                                            className='transition duration-300 hover:text-[#FA5252]'
-                                            href='tel:+1234567890'
-                                        >
-                                            Malta
-                                        </a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li className='flex border-b border-[#E3E3E3] py-2.5'>
-                                <Icon
-                                    icon={'location'}
-                                    className='bg-gray-nurse flex h-10 w-10 items-center justify-center rounded-lg text-[#6AB5B9] shadow-md'
-                                />
-                                <div className='5 ml-2 text-left'>
-                                    <p className='text-xs text-[#44566C] dark:text-[#A6A6A6]'>
-                                        Nationality
-                                    </p>
-                                    <p className='break-all'>
-                                        <a
-                                            className='transition duration-300 hover:text-[#FA5252]'
-                                            href='tel:+1234567890'
-                                        >
-                                            Colombia
-                                        </a>
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
-
+                        <ContactDetails
+                            className='bg-gray-nurse-200 mt-7 rounded-2xl p-7 dark:bg-[#1D1D1D]'
+                            items={[
+                                {
+                                    id: '1',
+                                    title: 'Phone',
+                                    description: '+356 990 43478',
+                                    icon: {
+                                        name: 'phone',
+                                        color: '#0072b1',
+                                    },
+                                },
+                                {
+                                    id: '2',
+                                    title: 'Email',
+                                    description: 'santiagomm1997@gmail.com',
+                                    icon: {
+                                        name: 'email',
+                                        color: '#1773EA',
+                                    },
+                                },
+                                {
+                                    id: '3',
+                                    title: 'Location',
+                                    description: 'Malta',
+                                    icon: {
+                                        name: 'location',
+                                        color: '#e14a84',
+                                    },
+                                },
+                                {
+                                    id: '3',
+                                    title: 'Nationality',
+                                    description: 'Colombian',
+                                    icon: {
+                                        name: 'location',
+                                        color: '#e14a84',
+                                    },
+                                },
+                            ]}
+                        />
                         <a
                             href=''
                             className='mx-auto mt-6 inline-flex items-center rounded-[35px] bg-gradient-to-r from-[#84c375] from-[#DD2476] to-[#36632b] to-[#fa5252ef] px-8 py-3 text-lg text-white transition duration-200 ease-linear hover:bg-gradient-to-l'
@@ -149,7 +119,7 @@ export default function Home() {
                                 <div>
                                     <div className='mb-4 flex items-center space-x-2'>
                                         <Icon
-                                            icon={'work'}
+                                            name={'work'}
                                             className='text-apple block text-3xl'
                                         />
                                         <h4 className='text-2xl font-medium dark:text-white'>
@@ -189,7 +159,7 @@ export default function Home() {
                                 <div>
                                     <div className='mb-4 flex items-center space-x-2'>
                                         <Icon
-                                            icon={'education'}
+                                            name={'education'}
                                             className='text-apple block text-3xl'
                                         />
                                         <h4 className='text-2xl font-medium dark:text-white'>
