@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`component::Logo should render the component correctly 1`] = `
+exports[`components::Logo should render the component correctly 1`] = `
 <svg
   data-name="Capa 1"
   id="Capa_1"

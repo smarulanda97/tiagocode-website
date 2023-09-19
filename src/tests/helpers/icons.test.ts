@@ -16,8 +16,8 @@ beforeEach(() => {
 
 describe('helpers::icons -> function getIcon()', () => {
     it('should load an icon from the icons source by the give name', () => {
-        expect(getIcon('icon-1', config)).toContain(create(Mock.Svg));
-        expect(getIcon('icon-2', config)).toContain(create(Mock.Svg));
+        expect(getIcon('icon-1', config)).toContain(config.source.icons['icon-1']);
+        expect(getIcon('icon-2', config)).toContain(config.source.icons['icon-2']);
     });
 
     it("should return null if the icon doesn't exists", () => {

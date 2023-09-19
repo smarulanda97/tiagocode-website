@@ -1,5 +1,14 @@
 import { faker } from '@faker-js/faker';
-import { Mock, ContactDetail, Icon, IconsConfig, SocialNetwork } from '@/types';
+import {
+    ContactDetail,
+    Experience,
+    Icon,
+    IconsConfig,
+    List,
+    Block,
+    SocialNetwork,
+    Mock,
+} from '@/types';
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +32,16 @@ import { Mock, ContactDetail, Icon, IconsConfig, SocialNetwork } from '@/types';
 
 /**
  * @param type
+ * @param overrides
  */
-export function create<T>(type: Mock): T {
-    return factory(type) as T;
+export function create<T>(type: Mock, overrides: object = {}): T {
+    let mock = factory(type);
+    if (!(typeof mock === 'object')) return mock;
+
+    return {
+        ...mock,
+        ...overrides,
+    };
 }
 
 /**
@@ -54,6 +70,12 @@ function factory(type: Mock): any {
             return createSocialNetwork();
         case Mock.ContactDetail:
             return createContactDetail();
+        case Mock.Block:
+            return createBlock();
+        case Mock.List:
+            return createList();
+        case Mock.Experience:
+            return createExperience();
         default:
             return {};
     }
@@ -74,8 +96,8 @@ function createIconsConfig(): IconsConfig {
     return {
         source: {
             icons: {
-                'icon-1': createSvg(),
-                'icon-2': createSvg(),
+                'icon-1': create(Mock.Svg),
+                'icon-2': create(Mock.Svg),
             },
         },
     };
@@ -86,7 +108,7 @@ function createSocialNetwork(): SocialNetwork {
         id: faker.string.uuid(),
         link: faker.internet.url(),
         title: faker.word.noun(),
-        icon: createIcon(),
+        icon: create(Mock.Icon),
     };
 }
 
@@ -96,6 +118,31 @@ function createContactDetail(): ContactDetail {
         link: faker.internet.url(),
         title: faker.word.noun(),
         description: faker.word.preposition(),
-        icon: createIcon(),
+        icon: create(Mock.Icon),
+    };
+}
+
+function createBlock(): Block {
+    return {
+        icon: create(Mock.Icon),
+        title: faker.lorem.words(4),
+        subtitle: faker.lorem.words(8),
+        description: faker.lorem.paragraph(),
+    };
+}
+
+function createList(): List<any> {
+    return {
+        items: createMany(Mock.Experience, Math.floor(Math.random() * 10)),
+    };
+}
+
+function createExperience(): Experience {
+    return {
+        id: faker.string.uuid(),
+        date: faker.date.anytime(),
+        role: faker.person.jobTitle(),
+        company: faker.company.name(),
+        description: faker.lorem.text(),
     };
 }

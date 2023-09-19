@@ -1,0 +1,108 @@
+{
+  "socialNetworks": [
+    {
+      "id": "1",
+      "title": "Linkedin",
+      "link": "https://google.com",
+      "icon": {
+        "name": "linkedin",
+        "color": "#0072b1"
+      }
+    },
+    {
+      "id": "2",
+      "title": "Facebook",
+      "link": "https://google.com",
+      "icon": {
+        "name": "facebook",
+        "color": "#1773EA"
+      }
+    },
+    {
+      "id": "3",
+      "title": "Google",
+      "link": "https://google.com",
+      "icon": {
+        "name": "website",
+        "color": "#e14a84"
+      }
+    }
+  ],
+  "contactDetails": [
+    {
+      "id": "1",
+      "title": "Phone",
+      "description": "+356 990 43478",
+      "icon": {
+        "name": "phone",
+        "color": "#0072b1"
+      }
+    },
+    {
+      "id": "2",
+      "title": "Email",
+      "description": "santiagomm1997@gmail.com",
+      "icon": {
+        "name": "email",
+        "color": "#1773EA"
+      }
+    },
+    {
+      "id": "3",
+      "title": "Location",
+      "description": "Malta",
+      "icon": {
+        "name": "location",
+        "color": "#e14a84"
+      }
+    },
+    {
+      "id": "3",
+      "title": "Nationality",
+      "description": "Colombian",
+      "icon": {
+        "name": "location",
+        "color": "#e14a84"
+      }
+    }
+  ],
+  "workExperience": [
+    {
+      "id": "1",
+      "date": "july 2022 - present",
+      "company": "Videoslots",
+      "role": "Backend developer",
+      "description": ""
+    },
+    {
+      "id": "2",
+      "date": "july 2022 - present",
+      "company": "Videoslots",
+      "role": "Backend developer",
+      "description": ""
+    },
+    {
+      "id": "3",
+      "date": "july 2022 - present",
+      "company": "Videoslots",
+      "role": "Backend developer",
+      "description": ""
+    },
+    {
+      "id": "4",
+      "date": "july 2022 - present",
+      "company": "Videoslots",
+      "role": "Backend developer",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "id": "1",
+      "date": "july 2022 - present",
+      "company": "Videoslots",
+      "role": "Backend developer",
+      "description": ""
+    }
+  ]
+}
