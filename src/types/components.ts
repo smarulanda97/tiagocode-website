@@ -1,4 +1,9 @@
-import { HTMLAttributes } from 'react';
+import React, {
+    ElementType,
+    HTMLAttributes,
+    PropsWithChildren,
+    ComponentPropsWithoutRef,
+} from 'react';
 
 /*
 |--------------------------------------------------------------------------
@@ -10,6 +15,17 @@ import { HTMLAttributes } from 'react';
 |
 */
 
+type AsProp<C extends ElementType> = {
+    as?: C;
+};
+
+type PropsToOmit<C extends ElementType, P> = keyof (AsProp<C> & P);
+
+export type PolymorphicProps<C extends ElementType, Props = {}> = PropsWithChildren<
+    Props & AsProp<C>
+> &
+    Omit<ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
+
 /*
 |--------------------------------------------------------------------------
 | Types -> Component: Icon
@@ -19,7 +35,7 @@ import { HTMLAttributes } from 'react';
 |
 */
 
-export interface Icon extends HTMLAttributes<HTMLElement> {
+export interface IconProps extends HTMLAttributes<HTMLElement> {
     name: string;
     color?: string;
 }
@@ -33,16 +49,12 @@ export interface Icon extends HTMLAttributes<HTMLElement> {
 |
 */
 
-export type SocialNetwork = {
+export type SocialNetworkProps = {
     id: string;
-    icon: Icon;
     link: string;
     title?: string;
+    icon: IconProps;
 };
-
-export interface SocialNetworks extends HTMLAttributes<HTMLElement> {
-    items: Array<SocialNetwork>;
-}
 
 /*
 |--------------------------------------------------------------------------
@@ -53,17 +65,13 @@ export interface SocialNetworks extends HTMLAttributes<HTMLElement> {
 |
 */
 
-export type ContactDetail = {
+export type ContactDetailProps = {
     id: string;
-    icon: Icon;
     link?: string;
     title: string;
     description: string;
+    icon: IconProps;
 };
-
-export interface ContactDetails extends HTMLAttributes<HTMLElement> {
-    items: Array<ContactDetail>;
-}
 
 /*
 |--------------------------------------------------------------------------
@@ -74,11 +82,11 @@ export interface ContactDetails extends HTMLAttributes<HTMLElement> {
 |
 */
 
-export interface Block extends HTMLAttributes<HTMLDivElement> {
-    icon?: Icon;
+export interface BlockProps extends HTMLAttributes<HTMLDivElement> {
     title: string;
     subtitle?: string;
     description?: string;
+    icon?: IconProps;
 }
 
 /*
@@ -91,20 +99,46 @@ export interface Block extends HTMLAttributes<HTMLDivElement> {
 |
 */
 
-export interface ListItem extends HTMLAttributes<HTMLElement> {
+export interface ListItemProps extends HTMLAttributes<HTMLElement> {
     id: string;
 }
 
-export interface List<T extends ListItem> extends HTMLAttributes<HTMLUListElement> {
-    items: Array<T>;
-    itemComponent?: (itemComponentProps: T) => React.ReactNode;
+export interface ListProps {
+    items: Array<any>;
+    itemComponent?: (itemComponentProps: any) => React.ReactComponentElement<any>;
 }
 
-export interface Experience extends ListItem {
+/*
+|--------------------------------------------------------------------------
+| Types -> Component: Card
+|--------------------------------------------------------------------------
+|
+| The custom types related to the Card component.
+|
+*/
+
+export type CardProps = {
+    id: string;
+    date?: string;
+    title: string;
+    subtitle?: string;
+    summary?: string;
+    text?: string;
+};
+
+/*
+|--------------------------------------------------------------------------
+| Types -> Component: WorkExperience
+|--------------------------------------------------------------------------
+|
+| The custom types related to the WorkExperience component.
+|
+*/
+
+export interface WorkExperienceProps extends ListItemProps {
     date: string;
     role: string;
     company: string;
+    overview?: string;
     description?: string;
 }
-
-export type WorkExperienceList = List<Experience>;

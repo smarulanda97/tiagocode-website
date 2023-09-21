@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import data from '@/data.json';
-import { SocialNetworks, ContactDetails, Block, UnorderedList, CardItemList } from '@/components';
+import { SocialNetwork, Block, List, WorkExperience, ContactDetail } from '@/components';
 
 export default function Home() {
     return (
@@ -16,9 +16,9 @@ export default function Home() {
                         className='absolute left-[50%] mx-auto -mt-[140px] h-[240px] w-[240px] -translate-x-[50%] transform rounded-[20px] drop-shadow-xl'
                     />
                     <div className='pb-8 pt-[100px]'>
-                        <h1 className='mb-1 mt-6 text-2xl font-semibold'>Santiago Marulanda</h1>
+                        <h1 className='mb-1 mt-6 text-2xl font-semibold'>Santiago Marulanda M</h1>
                         <h3 className='mb-4 inline-block rounded-lg px-5 py-1.5'>
-                            Backend Developer PHP
+                            Mid Backend Developer PHP
                         </h3>
                         <p className='mb-4 text-left text-sm text-gray-600'>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi
@@ -26,13 +26,17 @@ export default function Home() {
                             laudantium molestiae neque optio praesentium quis quo quod recusandae!
                             Harum, nesciunt.
                         </p>
-                        <SocialNetworks
-                            className='flex justify-center space-x-3'
+                        <List
+                            as={'div'}
                             items={data.socialNetworks}
+                            itemComponent={SocialNetwork}
+                            className='flex justify-center space-x-3'
                         />
-                        <ContactDetails
-                            className='bg-gray-nurse-200 mt-7 rounded-2xl p-7'
+                        <List
+                            as={'div'}
                             items={data.contactDetails}
+                            itemComponent={ContactDetail}
+                            className='bg-gray-nurse-200 mt-7 rounded-2xl p-7'
                         />
                         <a
                             href=''
@@ -50,17 +54,19 @@ export default function Home() {
                             <h2 className='text-4xl font-bold'>Resume</h2>
                             <div className='mt-[30px] grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2 lg:grid-cols-2'>
                                 <Block icon={{ name: 'work' }} title={'Experience'}>
-                                    <UnorderedList
+                                    <List
+                                        as={'div'}
                                         items={data.workExperience}
-                                        itemComponent={(props) => <CardItemList {...props} />}
+                                        itemComponent={WorkExperience}
                                     />
                                 </Block>
-                                {/*<Block icon={{ name: 'education' }} title={'Education'}>*/}
-                                {/*    <UnorderedList*/}
-                                {/*        items={data.education}*/}
-                                {/*        itemComponent={(props) => <CardItemList {...props} />}*/}
-                                {/*    />*/}
-                                {/*</Block>*/}
+                                <Block icon={{ name: 'education' }} title={'Education'}>
+                                    <List
+                                        as={'div'}
+                                        items={data.education}
+                                        itemComponent={WorkExperience}
+                                    />
+                                </Block>
                             </div>
                         </div>
                     </div>

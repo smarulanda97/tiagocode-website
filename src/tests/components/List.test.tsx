@@ -1,13 +1,13 @@
-import { UnorderedList } from '@/components';
+import { List } from '@/components';
+import { ListProps, Mock } from '@/types';
 import { create, render } from '@/tests/utils';
-import { Mock, WorkExperienceList } from '@/types';
 
-const workExperienceList = create<WorkExperienceList>(Mock.List);
+const workExperienceList = create<ListProps>(Mock.List);
 
-describe('components::UnorderedList', () => {
+describe('components::List', () => {
     it('should render the list and its items', () => {
         const { getByTestId, getByRole, getAllByRole, getByText } = render(
-            <UnorderedList {...workExperienceList} />
+            <List {...workExperienceList} />
         );
 
         expect(getByRole('list')).toBeInTheDocument();
@@ -16,7 +16,7 @@ describe('components::UnorderedList', () => {
 
     it('should be able to render a custom list item', () => {
         const { getAllByRole } = render(
-            <UnorderedList
+            <List
                 items={workExperienceList.items}
                 itemComponent={(props) => (
                     <li key={props.id}>

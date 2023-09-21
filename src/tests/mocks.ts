@@ -1,13 +1,14 @@
 import { faker } from '@faker-js/faker';
 import {
-    ContactDetail,
     Experience,
-    Icon,
+    IconProps,
     IconsConfig,
-    List,
-    Block,
-    SocialNetwork,
+    BlockProps,
     Mock,
+    SocialNetworkProps,
+    ListProps,
+    ContactDetailProps,
+    CardProps,
 } from '@/types';
 
 /*
@@ -76,6 +77,8 @@ function factory(type: Mock): any {
             return createList();
         case Mock.Experience:
             return createExperience();
+        case Mock.Card:
+            return createCard();
         default:
             return {};
     }
@@ -85,7 +88,7 @@ function createSvg(): string {
     return decodeURIComponent(faker.image.dataUri());
 }
 
-function createIcon(): Icon {
+function createIcon(): IconProps {
     return {
         name: faker.word.noun(),
         color: faker.color.rgb(),
@@ -103,7 +106,7 @@ function createIconsConfig(): IconsConfig {
     };
 }
 
-function createSocialNetwork(): SocialNetwork {
+function createSocialNetwork(): SocialNetworkProps {
     return {
         id: faker.string.uuid(),
         link: faker.internet.url(),
@@ -112,7 +115,7 @@ function createSocialNetwork(): SocialNetwork {
     };
 }
 
-function createContactDetail(): ContactDetail {
+function createContactDetail(): ContactDetailProps {
     return {
         id: faker.string.uuid(),
         link: faker.internet.url(),
@@ -122,7 +125,7 @@ function createContactDetail(): ContactDetail {
     };
 }
 
-function createBlock(): Block {
+function createBlock(): BlockProps {
     return {
         icon: create(Mock.Icon),
         title: faker.lorem.words(4),
@@ -131,18 +134,29 @@ function createBlock(): Block {
     };
 }
 
-function createList(): List<any> {
+function createList(): ListProps {
     return {
-        items: createMany(Mock.Experience, Math.floor(Math.random() * 10)),
+        items: createMany(Mock.Experience, Math.floor(Math.random() * 10) + 1),
     };
 }
 
 function createExperience(): Experience {
     return {
         id: faker.string.uuid(),
-        date: faker.date.anytime(),
+        date: faker.date.anytime().toDateString(),
         role: faker.person.jobTitle(),
         company: faker.company.name(),
         description: faker.lorem.text(),
+    };
+}
+
+function createCard(): CardProps {
+    return {
+        id: faker.string.uuid(),
+        date: faker.date.anytime().toDateString(),
+        title: faker.person.jobTitle(),
+        subtitle: faker.company.name(),
+        summary: faker.lorem.text(),
+        text: faker.lorem.text(),
     };
 }

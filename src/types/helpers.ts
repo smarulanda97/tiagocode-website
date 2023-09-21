@@ -37,6 +37,7 @@ export enum Mock {
     Block,
     List,
     Experience,
+    Card,
 }
 
 export type getIconMock = jest.Mock<(name: string, config: IconsConfig) => string | null>;
