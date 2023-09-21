@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import {
-    Experience,
+    WorkExperienceProps,
     IconProps,
     IconsConfig,
     BlockProps,
@@ -140,7 +140,7 @@ function createList(): ListProps {
     };
 }
 
-function createExperience(): Experience {
+function createExperience(): WorkExperienceProps {
     return {
         id: faker.string.uuid(),
         date: faker.date.anytime().toDateString(),

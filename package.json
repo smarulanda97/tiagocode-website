@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "generate-css-types": "tailwindcss-classnames -i tailwind.config.ts -o ./src/types/tailwind.ts"
   },
   "dependencies": {
     "@testing-library/user-event": "^14.4.3",

@@ -7,7 +7,6 @@ import {
     margin,
     padding,
     spacing,
-    textColor,
 } from 'tailwindcss-classnames';
 
 export const card = classnames(
@@ -19,7 +18,7 @@ export const card = classnames(
 );
 
 export const date = classnames(
-    textColor('text-gray-lite'),
+    // textColor('text-gray-lite'),
     display('block'),
     fontSize('text-sm')
 );
