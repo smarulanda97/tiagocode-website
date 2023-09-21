@@ -1,4 +1,8 @@
-export default function Logo(props) {
+import { JSX, SVGProps } from 'react';
+
+export default function Logo(
+    props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
     return (
         <svg
             {...props}
