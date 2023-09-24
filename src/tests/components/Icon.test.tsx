@@ -23,13 +23,20 @@ describe('components::Icon', () => {
     });
 
     it('should forward additional HTML properties to the span tag', () => {
-        const { getByTestId, debug } = render(<Icon name={'icon-1'} className={'class-1'} />);
+        const { getByTestId, debug } = render(
+            <Icon name={'icon-1'} className={'class-1'} />
+        );
         expect(getByTestId('icon')).toBeInTheDocument();
-        expect(getByTestId('icon')).toHaveAttribute('class', 'class-1');
+        expect(getByTestId('icon').classList).toContain('class-1');
     });
 
-    it.skip('should have the classname for the color black (#000) by default', () => {
-        const { container } = render(<Icon name={'icon-1'} />);
-        expect(container.querySelector('span')).toHaveClass('text-[#000]');
+    it('should add the style attribute with the color', () => {
+        const { container } = render(
+            <Icon name={'icon-1'} color={'#189cb4'} />
+        );
+        expect(container.querySelector('span')).toHaveAttribute(
+            'style',
+            'color: rgb(24, 156, 180);'
+        );
     });
 });

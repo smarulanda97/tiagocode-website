@@ -1,20 +1,15 @@
-import {
-    alignItems,
-    borders,
-    boxShadow,
-    classnames,
-    display,
-    height,
-    justifyContent,
-    width,
-} from 'tailwindcss-classnames';
+import { tv } from 'tailwind-variants';
 
-export const icon = classnames(
-    height('h-10'),
-    width('w-10'),
-    display('flex'),
-    alignItems('items-center'),
-    justifyContent('justify-center'),
-    borders('rounded-lg'),
-    boxShadow('shadow-md')
-);
+export const Styles = tv({
+    slots: {
+        icon: [
+            'h-10',
+            'w-10',
+            'flex',
+            'items-center',
+            'justify-center',
+            'rounded-lg',
+            'shadow-md',
+        ],
+    },
+});

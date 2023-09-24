@@ -1,30 +1,18 @@
-import {
-    backgroundColor,
-    borders,
-    classnames,
-    display,
-    fontSize,
-    margin,
-    padding,
-    spacing,
-} from 'tailwindcss-classnames';
+import { tv } from 'tailwind-variants';
 
-export const card = classnames(
-    margin('mb-6'),
-    padding('px-5', 'py-4'),
-    spacing('space-y-2'),
-    borders('rounded-lg'),
-    backgroundColor('bg-white')
-);
-
-export const date = classnames(
-    // textColor('text-gray-lite'),
-    display('block'),
-    fontSize('text-sm')
-);
-
-export const title = classnames(fontSize('text-xl'));
-
-export const subtitle = classnames(fontSize('text-base'));
-
-export const summary = classnames(fontSize('text-base'));
+export const Styles = tv({
+    slots: {
+        container: [
+            'mb-6',
+            'px-5',
+            'py-4',
+            'space-y-2',
+            'rounded-lg',
+            'bg-white',
+        ],
+        date: ['block', 'text-sm'],
+        title: ['text-xl'],
+        subtitle: ['text-base'],
+        summary: ['text-base'],
+    },
+});

@@ -2,19 +2,22 @@ import Link from 'next/link';
 
 import { Icon } from '@/components';
 import { ContactDetailProps } from '@/types';
-import * as css from './ContactDetail.styles';
+import { Styles } from './ContactDetail.styles';
 
 function ContactDetailComponent(props: ContactDetailProps) {
+    const styles = Styles();
     const { id, title, description, icon, link } = props;
 
     return (
-        <div key={id} className={css.container}>
-            <Icon {...icon} className={css.icon} />
-            <div className={css.content}>
-                <p className={css.title}>{title}</p>
-                <p>
+        <div key={id} className={styles.container()}>
+            <div>
+                <Icon {...icon} className={styles.icon()} />
+            </div>
+            <div className={styles.content()}>
+                <p className={styles.title()}>{title}</p>
+                <p className={styles.description()}>
                     {link ? (
-                        <Link href={link} className={css.link}>
+                        <Link href={link} className={styles.link()}>
                             {description}
                         </Link>
                     ) : null}

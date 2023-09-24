@@ -1,28 +1,10 @@
-import {
-    alignItems,
-    classnames,
-    display,
-    fontSize,
-    fontWeight,
-    margin,
-    spacing,
-    textColor,
-} from 'tailwindcss-classnames';
+import { tv } from 'tailwind-variants';
 
-export const header = classnames(
-    margin('mb-4'),
-    spacing('space-x-2'),
-    display('flex'),
-    alignItems('items-center')
-);
-
-export const icon = classnames(
-    textColor('text-black'),
-    fontSize('text-3xl'),
-    display('block')
-);
-
-export const title = classnames(
-    fontSize('text-2xl'),
-    fontWeight('font-medium')
-);
+export const Styles = tv({
+    slots: {
+        base: [],
+        header: ['mb-4', 'space-x-2', 'flex', 'items-center'],
+        title: ['text-2xl', 'font-medium'],
+        icon: ['block', 'text-black', 'text-3xl'],
+    },
+});

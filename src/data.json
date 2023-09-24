@@ -3,7 +3,7 @@
     {
       "id": "1",
       "title": "Linkedin",
-      "link": "https://google.com",
+      "link": "https://www.linkedin.com/in/smarulanda97/",
       "icon": {
         "name": "linkedin",
         "color": "#0072b1"
@@ -11,19 +11,19 @@
     },
     {
       "id": "2",
-      "title": "Facebook",
-      "link": "https://google.com",
+      "title": "Github",
+      "link": "https://github.com/smarulanda97",
       "icon": {
-        "name": "facebook",
+        "name": "github",
         "color": "#1773EA"
       }
     },
     {
       "id": "3",
-      "title": "Google",
-      "link": "https://google.com",
+      "title": "Youtube",
+      "link": "https://www.youtube.com/channel/UCojFDPYwAXHatTsXVzOAYZQ",
       "icon": {
-        "name": "website",
+        "name": "youtube",
         "color": "#e14a84"
       }
     }
@@ -49,7 +49,7 @@
     },
     {
       "id": "3",
-      "title": "Location",
+      "title": "Working location",
       "description": "Malta",
       "icon": {
         "name": "location",
@@ -59,7 +59,7 @@
     {
       "id": "4",
       "title": "Nationality",
-      "description": "Colombian",
+      "description": "Colombian \uD83C\uDDE8\uD83C\uDDF4",
       "icon": {
         "name": "location",
         "color": "#e14a84"

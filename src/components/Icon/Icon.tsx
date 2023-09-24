@@ -9,6 +9,9 @@ function IconComponent(props: IconProps) {
             {...otherProps}
             data-testid={'icon'}
             dangerouslySetInnerHTML={{ __html: getIcon(name) ?? '' }}
+            style={{
+                color,
+            }}
         />
     );
 }

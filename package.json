@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watchAll",
-    "generate-css-types": "tailwindcss-classnames -i tailwind.config.ts -o ./src/types/tailwind.ts"
+    "test:watch": "jest --watchAll"
   },
   "dependencies": {
     "@testing-library/user-event": "^14.4.3",
@@ -21,8 +20,8 @@
     "postcss": "8.4.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tailwindcss": "3.3.3",
-    "tailwindcss-classnames": "^3.1.0"
+    "tailwind-variants": "^0.1.14",
+    "tailwindcss": "3.3.3"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",

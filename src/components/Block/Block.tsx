@@ -1,22 +1,23 @@
 import { Icon } from '@/components';
 import { BlockProps } from '@/types';
-import * as css from './Block.styles';
+import { Styles } from './Block.styles';
 
 function BlockComponent(props: BlockProps) {
+    const styles = Styles();
     const { icon, title, subtitle, description, children, ...otherProps } =
         props;
 
     return (
         <div {...otherProps}>
             <div>
-                <div className={css.header}>
-                    {icon ? <Icon {...icon} className={css.icon} /> : null}
-                    {title ? <h2 className={css.title}>{title}</h2> : null}
+                <div className={styles.header()}>
+                    {icon && <Icon {...icon} className={styles.icon()} />}
+                    {title && <h2 className={styles.title()}>{title}</h2>}
                 </div>
-                {subtitle ? <p>{subtitle}</p> : null}
-                {description ? (
+                {subtitle && <p>{subtitle}</p>}
+                {description && (
                     <p dangerouslySetInnerHTML={{ __html: description }} />
-                ) : null}
+                )}
             </div>
             {children}
         </div>

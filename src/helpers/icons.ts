@@ -23,7 +23,9 @@ const defaultConfig: IconsConfig = {
 export function getIcon(name: string, config?: IconsConfig) {
     if (!config) {
         config = defaultConfig;
-    } else if (!Object.prototype.hasOwnProperty.call(config.source.icons, name)) {
+    } else if (
+        !Object.prototype.hasOwnProperty.call(config.source.icons, name)
+    ) {
         return null;
     }
 
