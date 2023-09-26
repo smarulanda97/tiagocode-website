@@ -7,6 +7,7 @@ function WorkExperienceComponent(props: WorkExperienceProps) {
     return (
         <Card
             as={'div'}
+            type={'simple'}
             id={id}
             date={date}
             title={company}

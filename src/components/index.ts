@@ -3,6 +3,7 @@ export { default as Icon } from '@/components/Icon/Icon';
 export { default as Card } from '@/components/Card/Card';
 export { default as List } from '@/components/List/List';
 export { default as Block } from '@/components/Block/Block';
+export { default as Button } from '@/components/Button/Button';
 export { default as NodePortfolio } from '@/components/Node/NodePortfolio';
 export { default as SocialNetwork } from '@/components/SocialNetwork/SocialNetwork';
 export { default as ContactDetail } from '@/components/ContactDetail/ContactDetail';

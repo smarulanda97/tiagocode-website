@@ -6,8 +6,8 @@ import { Styles } from './Card.styles';
 function CardComponent<C extends ElementType = 'li'>(
     props: PolymorphicProps<C, CardProps>
 ) {
-    const styles = Styles();
-    const { as, date, title, subtitle, summary } = props;
+    const { as, date, title, subtitle, summary, type = 'simple' } = props;
+    const styles = Styles({ type: 'simple' });
     const Component = as || 'li';
 
     return (

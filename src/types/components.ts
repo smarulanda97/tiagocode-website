@@ -15,16 +15,17 @@ import React, {
 |
 */
 
-type AsProp<C extends ElementType> = {
-    as?: C;
+type AsProp<As extends ElementType> = {
+    as?: As;
 };
 
-type PropsToOmit<C extends ElementType, P> = keyof (AsProp<C> & P);
+type PropsToOmit<As extends ElementType, P> = keyof (AsProp<As> & P);
 
-export type PolymorphicProps<C extends ElementType, Props = {}> = PropsWithChildren<
-    Props & AsProp<C>
-> &
-    Omit<ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
+export type PolymorphicProps<
+    As extends ElementType,
+    Props = {},
+> = PropsWithChildren<Props & AsProp<As>> &
+    Omit<ComponentPropsWithoutRef<As>, PropsToOmit<As, Props>>;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,7 +106,9 @@ export interface ListItemProps extends HTMLAttributes<HTMLElement> {
 
 export interface ListProps {
     items: Array<any>;
-    itemComponent?: (itemComponentProps: any) => React.ReactComponentElement<any>;
+    itemComponent?: (
+        itemComponentProps: any
+    ) => React.ReactComponentElement<any>;
 }
 
 /*
@@ -124,6 +127,7 @@ export type CardProps = {
     subtitle?: string;
     summary?: string;
     text?: string;
+    type?: string;
 };
 
 /*

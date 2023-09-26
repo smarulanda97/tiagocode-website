@@ -5,13 +5,22 @@ function ListItemComponent(props: ListItemProps) {
     return <li key={props.id}></li>;
 }
 
-function ListComponent<C extends ElementType = 'ul'>(props: PolymorphicProps<C, ListProps>) {
-    const { as, items = [], itemComponent = ListItemComponent, ...otherProps } = props;
+function ListComponent<As extends ElementType = 'ul'>(
+    props: PolymorphicProps<As, ListProps>
+) {
+    const {
+        as,
+        items = [],
+        itemComponent = ListItemComponent,
+        ...otherProps
+    } = props;
     const Component = as || 'ul';
 
     return (
         <Component {...otherProps}>
-            {items.length ? items.map((componentProps) => itemComponent(componentProps)) : null}
+            {items.length
+                ? items.map((componentProps) => itemComponent(componentProps))
+                : null}
         </Component>
     );
 }

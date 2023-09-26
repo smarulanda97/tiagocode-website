@@ -9,16 +9,14 @@ function BlockComponent(props: BlockProps) {
 
     return (
         <div {...otherProps}>
-            <div>
-                <div className={styles.header()}>
-                    {icon && <Icon {...icon} className={styles.icon()} />}
-                    {title && <h2 className={styles.title()}>{title}</h2>}
-                </div>
-                {subtitle && <p>{subtitle}</p>}
-                {description && (
-                    <p dangerouslySetInnerHTML={{ __html: description }} />
-                )}
+            <div className={styles.header()}>
+                {icon && <Icon {...icon} className={styles.icon()} />}
+                {title && <h2 className={styles.title()}>{title}</h2>}
             </div>
+            {subtitle && <p>{subtitle}</p>}
+            {description && (
+                <p dangerouslySetInnerHTML={{ __html: description }} />
+            )}
             {children}
         </div>
     );
